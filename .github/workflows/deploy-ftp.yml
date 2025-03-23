@@ -21,5 +21,5 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }} # Secure username
           password: ${{ secrets.SFTP_PASSWORD }} # Secure password
           local_path: ./ # Path to the files being deployed
-          remote_path: /azureExamQuiz/ # Remote target directory
+          remote_path: / # Remote target directory
 
