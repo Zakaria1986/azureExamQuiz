@@ -21,5 +21,5 @@ jobs:
           server: ${{ secrets.SFTP_SERVER }} # SFTP server address (e.g., sftp.yourdomain.com)
           username: ${{ secrets.SFTP_USERNAME }} # SFTP username
           password: ${{ secrets.SFTP_PASSWORD }} # SFTP password
-          local-dir: ./ # Deploy all files in the repository
-          server-dir: /public_html/azureExamQuiz/ # Target directory on your shared hosting
+          local_path: ./ # Deploy all files in the repository
+          remote_path: /public_html/azureExamQuiz/ # Target directory on your shared hosting
