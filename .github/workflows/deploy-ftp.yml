@@ -14,11 +14,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4
+      - name: Deploy via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
-          server: ${{ secrets.SFTP_SERVER }}
-          username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          localDir: ./ # Update as needed for local files to deploy
-          serverDir: /public_html/azureExamQuiz/ # Update as needed for the target directory
+          server: access822362814.webspace-data.io # SFTP server address
+          username: ${{ secrets.SFTP_USERNAME }} # Secure username
+          password: ${{ secrets.SFTP_PASSWORD }} # Secure password
+          local_path: ./ # Path to the files being deployed
+          remote_path: /public_html/azureExamQuiz/ # Remote target directory
+
