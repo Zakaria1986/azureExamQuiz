@@ -1,4 +1,4 @@
-name: Deploy to IONOS Shared Hosting via FTP
+name: Deploy to IONOS Shared Hosting via SFTP
 
 on:
   push:
@@ -14,12 +14,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Deploy files via FTP
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      # Step 2: Deploy files via SFTP
+      - name: Deploy via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
-          server: ${{ secrets.FTP_SERVER }} # FTP server address (e.g., ftp.yourdomain.com)
-          username: ${{ secrets.FTP_USERNAME }} # FTP username
-          password: ${{ secrets.FTP_PASSWORD }} # FTP password
+          server: ${{ secrets.SFTP_SERVER }} # SFTP server address (e.g., sftp.yourdomain.com)
+          username: ${{ secrets.SFTP_USERNAME }} # SFTP username
+          password: ${{ secrets.SFTP_PASSWORD }} # SFTP password
           local-dir: ./ # Deploy all files in the repository
           server-dir: /public_html/azureExamQuiz/ # Target directory on your shared hosting
