@@ -1,3 +1,3 @@
 # azureExamQuiz
 
-Take the quiz here: ()['https://zakaria1986.github.io/azureExamQuiz/']
+Take the quiz here: ['https://zakaria1986.github.io/azureExamQuiz/'](https://zakaria1986.github.io/azureExamQuiz/)
