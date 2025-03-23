@@ -1,0 +1,25 @@
+name: Deploy to IONOS Shared Hosting via FTP
+
+on:
+  push:
+    branches:
+      - main # Trigger the workflow on push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Deploy files via FTP
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_SERVER }} # FTP server address (e.g., ftp.yourdomain.com)
+          username: ${{ secrets.FTP_USERNAME }} # FTP username
+          password: ${{ secrets.FTP_PASSWORD }} # FTP password
+          local-dir: ./ # Deploy all files in the repository
+          server-dir: /public_html/az-900examquiz/ # Target directory on your shared hosting
