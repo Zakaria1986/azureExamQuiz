@@ -14,12 +14,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Step 2: Deploy files via SFTP
       - name: Deploy via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.0
+        uses: wlixcc/SFTP-Deploy-Action@v4.0
         with:
-          server: access822362814.webspace-data.io # SFTP server address
-          username: ${{ secrets.SFTP_USERNAME }} # Secure username
-          password: ${{ secrets.SFTP_PASSWORD }} # Secure password
-          local_path: ./ # Path to the files being deployed
-          remote_path: / # Remote target directory
-
+          server: ${{ secrets.SFTP_SERVER }} # SFTP server address (e.g., sftp.yourdomain.com)
+          username: ${{ secrets.SFTP_USERNAME }} # SFTP username
+          password: ${{ secrets.SFTP_PASSWORD }} # SFTP password
+          local-dir: ./ # Deploy all files in the repository
+          server-dir: /public_html/azureExamQuiz/ # Target directory on your shared hosting
